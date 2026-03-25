@@ -1,87 +1,33 @@
 import React, { useState } from 'react';
 import Child from './Child';
+import './style.css'; // Used external CSS instead of inline styles as suggested in feedback
 function Parent() {
 
-// User clicks this API button to display a new Dad joke
-const [data, setData] = useState("Dad joke will be dispayed here");
+// This is the text that changes when button is clicked
+const [data, setData] = useState("Dad joke will be displayed here");
 
-// Background color of page
 return (
-    <div
-      style={{
-        fontFamily: 'Arial, sans-serif',
-        backgroundColor: '#f5f5f5',
-        minHeight: '100vh'
-    }}
+    <div className="page">
 
-// Top of page background color, border color and font styling
-    >
-    <header
-        style={{
-          backgroundColor: '#154eb9',
-          color: 'white',
-          padding: '30px 20px',
-          textAlign: 'center',
-          borderBottom: '4px solid #fc3b06'
-        }}
-
-// Added a little more space below title
-    ><h1
-        style={{
-            margin: 0,
-            color: 'white',
-            marginBottom: '25px', 
-            fontSize: 'clamp(28px, 5vw, 48px)'
-          }}
-
-// Main title of page
-     >Pietrowski's Assignment 7
-    </h1>
-    <p
-        style={{
-            marginTop: '10px',
-            marginBottom: 0,
-            color: '#FFD9CC',
-            fontSize: 'clamp(16px, 2.5vw, 20px)'
-          }}
-
-// Sub-title of page
-    >Introduction to React.js Project</p>
+    {/* Header section styled using CSS instead of inline per comment */}
+    <header className="header">
+    <h1 className="title">Pietrowski's Assignment 7</h1>
+    <p className="subtitle">Introduction to React.js Project</p>
     </header>
-        <div
-        style={{
-          padding: '30px 15px',
-          textAlign: 'center'
-        }}
-    >
-    <div
 
-// Box that displays the Dad joke
-        style={{
-            backgroundColor: 'white',
-            color: '#1D1D1D',
-            padding: '25px',
-            borderRadius: '10px',
-            border: '2px solid #0B162A',
-            maxWidth: '700px',
-            margin: '0 auto 30px auto',
-            boxShadow: '0 4px 12px rgba(0, 0, 0, 0.12)'
-          }}
-    >
-    <p
-        style={{
-              margin: 0,
-              fontSize: 'clamp(16px, 2.5vw, 22px)'
-            }}
-    >
-        {data}
-    </p>
-        </div>
+    {/* Main content area */}
+    <div className="content">
+
+    {/* Box that shows the current joke */}
+    <div className="joke-box">
+    <p className="joke-text">{data}</p>
+    </div>
+
+    {/* Sending the data and update function down to Child */}
     <Child name={data} setData={setData}></Child>
-      </div>
+    </div>
     </div>
   );
 }
 
-// Lets this be used in the other files
-export default Parent;
+export default Parent; // lets other files use this

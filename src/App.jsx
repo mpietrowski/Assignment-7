@@ -8,7 +8,7 @@ function App() {
 // Main app component and loads the Parent component onto the page
 return (
     <div>
-      <Parent></Parent>
+    <Parent></Parent>
     </div>
   );
 }
